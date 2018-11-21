@@ -8,7 +8,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -49,11 +50,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new ManifestPlugin(),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
-    })
+    }),
+    new ManifestPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single'
