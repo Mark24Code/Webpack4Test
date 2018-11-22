@@ -10,13 +10,19 @@ module.exports = merge(common, {
   output: {
     filename: "[name].[hash].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/',
+    publicPath: "/"
   },
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
     hot: true,
-    port: 9090,
+    port: 9090
   },
-  plugins: [new ManifestPlugin(), new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new ManifestPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("development")
+    })
+  ]
 });
