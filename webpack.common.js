@@ -32,5 +32,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Index"
     })
-  ]
+  ],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 };
