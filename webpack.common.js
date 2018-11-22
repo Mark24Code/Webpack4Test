@@ -4,6 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
+  output: {
+    filename: "[name].[chunkhash].js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -14,19 +19,6 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           "file-loader",
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192
-            }
-          },
-          {
-            loader: "image-webpack-loader",
-            options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true // webpack@2.x and newer
-            }
-          }
         ]
       },
       {
