@@ -5,6 +5,10 @@ const webpack = require("webpack");
 
 const common = require("./webpack.common.js");
 
+console.log("<<<<");
+console.log(process.env.NODE_ENV);
+console.log("<<<<@@@");
+
 module.exports = merge(common, {
   mode: "development",
   output: {
@@ -22,7 +26,8 @@ module.exports = merge(common, {
     new ManifestPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("development")
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      __ENV__: JSON.stringify("FFFFAA")
     })
   ]
 });
