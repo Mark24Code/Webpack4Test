@@ -10,7 +10,4 @@ function component() {
     element.appendChild(myIcon);
     return element;
 }
-console.log("<<<<HHHHH");
-console.log(process.env.NODE_ENV);
-console.log("<<<<@@@");
 document.body.appendChild(component());
