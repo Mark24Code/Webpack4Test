@@ -3,7 +3,7 @@ import Icon from './demo.png';
 
 function component() {
     var element = document.createElement('div');
-    element.innerHTML = 'hello webpack 209'
+    element.innerHTML = 'hello webpack 200999'
 
     var myIcon = new Image();
     myIcon.src = Icon;
