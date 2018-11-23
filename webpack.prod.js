@@ -10,6 +10,7 @@ let webpackModule = merge(common, {
     runtimeChunk: "single"
   },
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     })
