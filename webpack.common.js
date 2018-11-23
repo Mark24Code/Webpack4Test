@@ -8,19 +8,22 @@ module.exports = {
   output: {
     filename: "[name].[chunkhash].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/',
+    publicPath: "/"
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        include: path.resolve(__dirname, "src")
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          "file-loader",
-        ]
+        use: ["file-loader"]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -34,17 +37,17 @@ module.exports = {
       title: "Index"
     }),
     new webpack.ProvidePlugin({
-      _: 'lodash'
+      _: "lodash"
     })
   ],
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
+          name: "vendors",
+          chunks: "all"
         }
       }
     }
