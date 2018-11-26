@@ -14,7 +14,8 @@ module.exports = merge(common, {
   output: {
     filename: "[name].[hash].js",
     path: resolvePath("dist"),
-    publicPath: "/"
+    publicPath: "/",
+    pathinfo: false
   },
   devtool: "inline-source-map",
   devServer: {
